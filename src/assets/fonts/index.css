@@ -1,0 +1,4 @@
+/* 字体栈:西文/数字用 Stint Ultra Condensed,中文用站酷快乐体 */
+:root {
+  --font-game: 'Stint Ultra Condensed', 'ZCOOL KuaiLe', 'Microsoft YaHei', sans-serif;
+}

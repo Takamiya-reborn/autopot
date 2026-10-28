@@ -1,0 +1,7 @@
+/* 由 scripts/build-fonts.mjs 自动生成,请勿手动编辑 */
+@font-face {
+  font-family: 'Stint Ultra Condensed';
+  src: url('./stint-ultra-condensed-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
