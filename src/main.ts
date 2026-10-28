@@ -3,7 +3,7 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 
-import '@fontsource/zcool-kuaile'
+import './assets/fonts/zcool.css'
 import './assets/fonts/fonts.css'
 import './assets/fonts/index.css'
 import './styles/dst.css'

@@ -1,9 +1,10 @@
-// 生成 src/assets/fonts/ 的西文 @font-face 与 --font-game 字体栈
+// 生成 src/assets/fonts/ 的中文分片、西文 @font-face 与 --font-game 字体栈
 // 用法: node scripts/build-fonts.mjs
 // 字体来源:
-//   中文  站酷快乐体 @fontsource/zcool-kuaile (npm 依赖, OFL 1.1, main.ts 直接 import)
+//   中文  站酷快乐体 @fontsource/zcool-kuaile (npm 依赖, OFL 1.1) -> zcool/ 分片
 //   西文  konstanting.ttf — 饥荒官方简体汉化包 (放 .cache/fonts/)
 // konstanting 缺失时自动回退: @fontsource/stint-ultra-condensed(游戏内数字字体);中文始终回退系统字体
+// 站酷的拉丁字面被剔除,英文一律由西文字体渲染,避免加载窗口内英文误用快乐体
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -13,7 +14,8 @@ const projectRoot = path.resolve(scriptDir, '..')
 const FONT_CACHE = path.join(projectRoot, '.cache', 'fonts')
 const OUT_DIR = path.join(projectRoot, 'src', 'assets', 'fonts')
 const STINT = path.join(projectRoot, 'node_modules', '@fontsource', 'stint-ultra-condensed', 'files')
-const ZCOOL = path.join(projectRoot, 'node_modules', '@fontsource', 'zcool-kuaile', 'chinese-simplified.css')
+const ZCOOL_FILES = path.join(projectRoot, 'node_modules', '@fontsource', 'zcool-kuaile', 'files')
+const ZCOOL_INDEX = path.join(projectRoot, 'node_modules', '@fontsource', 'zcool-kuaile', 'index.css')
 
 const find = (names) => {
   for (const n of names) {
@@ -48,20 +50,41 @@ async function buildLatin() {
   return null
 }
 
+// 中文分片:fontsource index.css -> 丢弃拉丁字面 -> 仅保留 woff2,分片复制到 zcool/
+function buildZcool() {
+  if (!fs.existsSync(ZCOOL_INDEX)) {
+    console.warn('站酷快乐体缺失:请运行 npm install 安装 @fontsource/zcool-kuaile;当前中文回退系统字体')
+    return false
+  }
+  const css = fs.readFileSync(ZCOOL_INDEX, 'utf8')
+  const faces = [...css.matchAll(/\/\* (.+?) \*\/\s*@font-face \{([\s\S]*?)\}/g)]
+  fs.mkdirSync(path.join(OUT_DIR, 'zcool'), { recursive: true })
+  const kept = faces
+    .filter(([, , body]) => !body.includes('U+0000-00FF')) // 拉丁字面剔除
+    .map(([, name, body]) => {
+      const file = body.match(/url\(\.\/files\/([\w-]+\.woff2)\)/)?.[1]
+      if (!file) throw new Error(`分片未找到 woff2: ${name}`)
+      fs.copyFileSync(path.join(ZCOOL_FILES, file), path.join(OUT_DIR, 'zcool', file))
+      return `/* ${name} */\n@font-face {\n${body.replace(/^\s*\n/, '').replace(/\s+$/, '')}\n}\n`
+        .replace(/,\s*url\(\.\/files\/[\w-]+\.woff\) format\('woff'\)/, '') // 去 woff 兜底
+        .replace(/\.\/files\//, './zcool/')
+    })
+  if (kept.length === 0) throw new Error('index.css 未解析到任何分片')
+  fs.writeFileSync(
+    path.join(OUT_DIR, 'zcool.css'),
+    `/* 站酷快乐体分片,由 scripts/build-fonts.mjs 生成,请勿手动编辑;拉丁字面已剔除 */\n${kept.join('')}`,
+  )
+  console.log(`站酷快乐体: ${kept.length} 个分片(已剔除拉丁字面)`)
+  return true
+}
+
 async function main() {
   fs.mkdirSync(FONT_CACHE, { recursive: true })
   fs.rmSync(OUT_DIR, { recursive: true, force: true })
   fs.mkdirSync(OUT_DIR, { recursive: true })
 
   const latin = await buildLatin()
-  const zcool = fs.existsSync(ZCOOL)
-  let chineseNote = ''
-  if (zcool) {
-    console.log('站酷快乐体来自 @fontsource/zcool-kuaile,由 main.ts 直接引入,无需生成')
-  } else {
-    chineseNote = '站酷快乐体缺失:请运行 npm install 安装 @fontsource/zcool-kuaile;当前中文回退系统字体'
-    console.warn(chineseNote)
-  }
+  const zcool = buildZcool()
 
   const lines = [
     '/* 由 scripts/build-fonts.mjs 自动生成,请勿手动编辑 */',
