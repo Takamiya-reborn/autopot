@@ -1,6 +1,7 @@
 <script setup lang="ts">
 /* 营地夜景:星光 + 暗角,背景由 dst.css 的径向渐变打底;开局遮罩等首屏贴图与字体就绪 */
 import { onMounted, ref } from 'vue'
+import CookpotView from '@/views/CookpotView.vue'
 import meatballsImg from '@/assets/icons/meatballs.png'
 
 const show = ref(true)
@@ -11,13 +12,13 @@ onMounted(async () => {
     if (document.readyState === 'complete') resolve()
     else window.addEventListener('load', () => resolve(), { once: true })
   })
-  await Promise.all([new Promise((r) => setTimeout(r, 900)), loaded, document.fonts.ready])
+  await Promise.all([new Promise((r) => setTimeout(r, 900)), loaded, document.fonts?.ready])
   show.value = false
 })
 </script>
 
 <template>
-  <router-view />
+  <CookpotView />
 
   <Transition name="loader">
     <div v-if="show" class="loader">

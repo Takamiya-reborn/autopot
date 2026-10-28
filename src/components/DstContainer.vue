@@ -57,7 +57,7 @@ defineProps<{ title?: string }>()
   min-height: 0;
 }
 
-/* 面板标题,样式对齐 dst-panel__title */
+/* 面板标题 */
 .dst-container__title {
   padding-bottom: 10px;
   margin-bottom: 10px;

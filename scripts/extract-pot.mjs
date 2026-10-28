@@ -82,11 +82,6 @@ async function saveOpaque(frame, file) {
   await sharp(data, { raw: { width: w, height: h, channels: 4 } }).png().toFile(path.join(OUT_DIR, file))
 }
 
-// UI 槽位等非 anim 贴图直接裁剪
-async function saveRaw(frame, file) {
-  await frame.img.clone().extract(frame.rect).png().toFile(path.join(OUT_DIR, file))
-}
-
 async function main() {
   const gameDir = findGameDir(parseArgs())
   console.log(`游戏目录: ${gameDir}`)

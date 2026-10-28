@@ -26,14 +26,15 @@ const list = computed(() =>
     })),
 )
 
+// 食物类型(与游戏官方简体汉化一致)
 const FOODTYPE_LABELS: Record<string, string> = {
   MEAT: '肉',
-  VEGGIE: '蔬菜',
+  VEGGIE: '素食',
   MONSTER: '怪物',
   ELEMENTAL: '元素',
-  GOODIES: '美食',
-  ROUGHAGE: '粗纤维',
-  WOOD: '木材',
+  GOODIES: '好东西',
+  ROUGHAGE: '粗食',
+  WOOD: '木质',
 }
 
 // 保质期:游戏秒换算天(480 秒/天);空或 0 为不腐坏

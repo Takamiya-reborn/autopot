@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 import { findGameDir } from './lib/game-dir.mjs'
 import { decodeKtex, parseBuildFrames } from './lib/ktex.mjs'
+import { compressIcons } from './lib/optimize-icons.mjs'
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url))
 const projectRoot = path.resolve(scriptDir, '..')
@@ -25,8 +26,8 @@ function parseArgs() {
 
 const TAR = path.join(process.env.SystemRoot ?? 'C:\\Windows', 'System32', 'tar.exe')
 
-// 图鉴原生约 64px,锅内料理等大图展示放大数倍会发糊;导出时预放大 + 轻锐化改善观感
-const UPSCALE = 4
+// 图鉴原生约 64px,导出预放大 + 轻锐化改善观感;落盘前统一压缩到 128px 内
+const UPSCALE = 2
 
 // 裁剪 -> lanczos 放大 -> 锐化 -> 落盘(clone 防止复用同一管道时相互污染)
 async function saveIcon(img, rect, file) {
@@ -248,6 +249,8 @@ async function main() {
   const keptManifest = Object.fromEntries(Object.entries(manifest).filter(([k]) => used.has(k)))
   fs.writeFileSync(path.join(OUT_DIR, 'manifest.json'), JSON.stringify(keptManifest, null, 2))
   console.log(`裁剪完成: ${cropped + recovered} 张,清理无关图标 ${pruned} 张 -> src/assets/icons/`)
+
+  await compressIcons(OUT_DIR)
 
   // 对照数据 id 报告缺图
   const missing = dataIds.filter((id) => !manifest[id])

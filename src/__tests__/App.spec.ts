@@ -1,15 +1,16 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
+import { createPinia } from 'pinia'
 import App from '../App.vue'
 
 describe('App', () => {
-  it('渲染路由出口', () => {
+  it('渲染主界面', () => {
     const wrapper = mount(App, {
       global: {
-        stubs: { 'router-view': true },
+        plugins: [createPinia()],
       },
     })
-    expect(wrapper.findComponent({ name: 'RouterView' }).exists()).toBe(true)
+    expect(wrapper.findComponent({ name: 'CookpotView' }).exists()).toBe(true)
   })
 })

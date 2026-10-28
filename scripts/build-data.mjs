@@ -533,22 +533,22 @@ function main() {
   const ts = `${header}
 /** 食物值标签（数值为该物品提供的对应"度数"） */
 export type FoodTag =
-  | "meat" // 肉
-  | "fish" // 鱼
-  | "egg" // 蛋
-  | "fruit" // 果
-  | "veggie" // 菜
-  | "dairy" // 奶
-  | "sweetener" // 糖
-  | "fat" // 油脂
-  | "monster" // 怪物
-  | "inedible" // 不可食用（填充）
-  | "magic" // 魔法
-  | "seed" // 种子
-  | "decoration" // 装饰
-  | "frozen" // 冰
-  | "precook" // 下锅前已烤熟
-  | "dried"; // 下锅前已晒干
+  | "meat" // 肉度
+  | "fish" // 鱼度
+  | "egg" // 蛋度
+  | "fruit" // 水果度
+  | "veggie" // 蔬菜度
+  | "dairy" // 乳制品度
+  | "sweetener" // 甜味剂度
+  | "fat" // 油脂度
+  | "monster" // 怪物度
+  | "inedible" // 不可食用度（填充）
+  | "magic" // 魔法度
+  | "seed" // 种子度
+  | "decoration" // 装饰度
+  | "frozen" // 冰度
+  | "precook" // 预处理度（下锅前已烤熟）
+  | "dried"; // 干货度（下锅前已晒干）
 
 export type FoodValues = Partial<Record<FoodTag, number>>;
 
@@ -582,24 +582,24 @@ export interface Ingredient {
 
 export const INGREDIENTS: Ingredient[] = ${JSON.stringify(ingredients, null, 2)};
 
-/** 标签中文名（UI 用） */
+/** 食材属性中文名（与游戏官方简体汉化一致） */
 export const FOOD_TAG_LABELS: Record<FoodTag, string> = {
-  meat: "肉",
-  fish: "鱼",
-  egg: "蛋",
-  fruit: "果",
-  veggie: "菜",
-  dairy: "奶",
-  sweetener: "糖",
-  fat: "油脂",
-  monster: "怪物",
-  inedible: "填充",
-  magic: "魔法",
-  seed: "种子",
-  decoration: "装饰",
-  frozen: "冰",
-  precook: "预熟",
-  dried: "干制",
+  meat: "肉度",
+  fish: "鱼度",
+  egg: "蛋度",
+  fruit: "水果度",
+  veggie: "蔬菜度",
+  dairy: "乳制品度",
+  sweetener: "甜味剂度",
+  fat: "油脂度",
+  monster: "怪物度",
+  inedible: "不可食用度",
+  magic: "魔法度",
+  seed: "种子度",
+  decoration: "装饰度",
+  frozen: "冰度",
+  precook: "预处理度",
+  dried: "干货度",
 };
 
 /** 分类中文名（UI 用） */
@@ -609,14 +609,14 @@ export const CATEGORY_LABELS: Record<IngredientCategory, string> = {
   egg: "蛋类",
   fruit: "水果",
   veggie: "蔬菜",
-  dairy: "奶制品",
+  dairy: "乳制品",
   sweetener: "甜味剂",
   fat: "油脂",
-  magic: "魔法材料",
+  magic: "魔法",
   seed: "种子",
-  decoration: "装饰物",
+  decoration: "装饰",
   frozen: "冰",
-  inedible: "填充物",
+  inedible: "不可食用",
 };
 `
 

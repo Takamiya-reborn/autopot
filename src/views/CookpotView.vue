@@ -215,7 +215,8 @@ function onPick(ing: Ingredient) {
 .cookpot__slot {
   position: absolute;
   left: 50%;
-  transform: translate(-50%, -50%);
+  /* 用独立 translate 居中,避免覆盖槽位自身的 scale 按压动画 */
+  translate: -50% -50%;
 }
 
 /* 游戏内烹饪按钮:button_small 贴图按原始尺寸 95x47 显示,贴第 4 槽下方,黑字 */

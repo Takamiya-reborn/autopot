@@ -11,10 +11,8 @@ const props = withDefaults(
     health: number | null
     sanity: number | null
     size?: number
-    /** true:值在图标下方(成品区);false:图标与值同行(候选行) */
-    vertical?: boolean
   }>(),
-  { size: 34, vertical: true },
+  { size: 34 },
 )
 
 // 最多两位小数;数值字号随图标缩放
@@ -29,7 +27,7 @@ const items = computed(() => [
 </script>
 
 <template>
-  <div class="stat-badges" :class="{ 'stat-badges--row': !vertical }">
+  <div class="stat-badges">
     <div
       v-for="s in items"
       :key="s.label"
@@ -60,18 +58,10 @@ const items = computed(() => [
   gap: 22px;
 }
 
-.stat-badges--row {
-  gap: 10px;
-}
-
 .stat-badges__item {
   display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.stat-badges:not(.stat-badges--row) .stat-badges__item {
   flex-direction: column;
+  align-items: center;
   gap: 2px;
 }
 
@@ -83,11 +73,6 @@ const items = computed(() => [
 
 .stat-badges__value {
   color: var(--dst-text);
-}
-
-.stat-badges--row .stat-badges__value {
-  color: var(--dst-text-dim);
-  min-width: 2.2em;
 }
 
 .stat-badges__value--neg {

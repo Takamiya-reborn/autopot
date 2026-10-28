@@ -49,10 +49,16 @@ const emit = defineEmits<{
   transition: filter 0.15s, transform 0.1s;
 }
 
-/* 按下下沉 */
+/* 悬停放大、按下缩小,同 IngredientPanel 格子但幅度更小 */
+.pot-slot:hover:not(:disabled) {
+  filter: brightness(1.25);
+  transform: scale(1.03);
+}
+
+/* 按下缩小,盖过 hover 放大 */
 .pot-slot:active:not(:disabled) {
   filter: brightness(0.9);
-  transform: translateY(2px);
+  transform: scale(0.98);
 }
 
 .pot-slot--locked {

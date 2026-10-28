@@ -3,8 +3,6 @@
 :root {
   --dst-bg-deep: #0d0a08;
   --dst-bg: #1a130e;
-  --dst-panel: #2b2118;
-  --dst-panel-light: #3a2d20;
   --dst-panel-dark: #221a12;
   --dst-border: #d9c398;
   --dst-border-dim: #8a7a5c;
@@ -13,10 +11,7 @@
   --dst-accent: #e8862c;
   --dst-accent-soft: #f0a95c;
   --dst-glow: rgba(232, 134, 44, 0.45);
-  --dst-red: #cf5b45;
-  --dst-green: #9fb35c;
   --dst-shadow: rgba(0, 0, 0, 0.55);
-  --dst-radius: 10px;
 }
 
 * {
@@ -57,33 +52,6 @@ img {
   user-select: none;
 }
 
-/* ---------- 木质面板 ---------- */
-
-.dst-panel {
-  position: relative;
-  background: linear-gradient(180deg, var(--dst-panel-light) 0%, var(--dst-panel) 55%, var(--dst-panel-dark) 100%);
-  border: 2px solid var(--dst-border);
-  border-radius: var(--dst-radius);
-  box-shadow:
-    inset 0 0 0 2px rgba(0, 0, 0, 0.35),
-    inset 0 2px 8px rgba(255, 240, 200, 0.08),
-    0 6px 20px var(--dst-shadow);
-  padding: 16px;
-}
-
-/* 面板顶部装饰标题 */
-.dst-panel__title {
-  margin: -16px -16px 14px;
-  padding: 9px 16px;
-  border-bottom: 2px solid var(--dst-border-dim);
-  background: linear-gradient(180deg, rgba(255, 230, 180, 0.09), transparent);
-  font-size: 17px;
-  letter-spacing: 3px;
-  color: var(--dst-accent-soft);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-  text-align: center;
-}
-
 /* ---------- 按钮 ---------- */
 
 .dst-btn {
@@ -115,18 +83,7 @@ img {
   filter: saturate(0.3) brightness(0.65);
 }
 
-.dst-btn--primary {
-  background: linear-gradient(180deg, #f0a04a 0%, #e8862c 55%, #b9621a 100%);
-  border-color: #f7d9a8;
-  color: #3a1f08;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35);
-}
-
-.dst-btn--primary:hover:not(:disabled) {
-  box-shadow: 0 0 14px var(--dst-glow), 0 3px 8px var(--dst-shadow);
-}
-
-/* ---------- 通用文字 ---------- */
+/* ---------- 标题 ---------- */
 
 .dst-h1 {
   margin: 0;
@@ -137,13 +94,6 @@ img {
   text-shadow:
     0 0 18px var(--dst-glow),
     0 2px 3px #000;
-}
-
-.dst-sub {
-  margin: 0;
-  font-size: 13px;
-  letter-spacing: 3px;
-  color: var(--dst-text-dim);
 }
 
 /* ---------- 滚动条 ---------- */

@@ -1,15 +1,9 @@
-// 烹饪锅状态:槽位、锅型、烹饪流程(固定种子保证结果可复现)
+// 烹饪锅状态:槽位、烹饪流程
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
-import type { CookerId, PotRecipe } from '@/data/recipes'
+import type { PotRecipe } from '@/data/recipes'
 import { INGREDIENTS, type Ingredient } from '@/data/ingredients'
-import {
-  calculateRecipe,
-  getCandidateRecipes,
-  getIngredientValues,
-  getMatchingRecipes,
-  type IngData,
-} from '@/lib/pot'
+import { calculateRecipe, getCandidateRecipes, getMatchingRecipes } from '@/lib/pot'
 
 const SLOT_COUNT = 4
 // 烹饪动画时长(毫秒)
@@ -32,8 +26,6 @@ export const usePotStore = defineStore('pot', () => {
   const slots = ref<(string | null)[]>(Array(SLOT_COUNT).fill(null))
   // idle 待投入 / cooking 烹饪动画中 / done 已出结果
   const phase = ref<'idle' | 'cooking' | 'done'>('idle')
-  const cooker = ref<CookerId>('cookpot')
-  const seed = ref(1)
   const result = ref<PotRecipe | null>(null)
   // 本次烹饪消耗的食材(下锅即从槽位清空,完成后换一份时复用)
   const cookedIds = ref<string[]>([])
@@ -45,13 +37,12 @@ export const usePotStore = defineStore('pot', () => {
     const filled = filledIds.value
     return filled.length ? filled : cookedIds.value
   })
-  const ingData = computed<IngData>(() => getIngredientValues(activeIds.value))
   // 候选:放食材/烹饪中展示全部匹配菜谱(后续投料都可能改变结果);出锅后仅同优先级一档(与游戏结果一致)
   const candidates = computed(() => {
     if (!activeIds.value.length) return []
     return phase.value === 'done'
-      ? getCandidateRecipes(activeIds.value, cooker.value)
-      : getMatchingRecipes(activeIds.value, cooker.value)
+      ? getCandidateRecipes(activeIds.value)
+      : getMatchingRecipes(activeIds.value)
   })
   // 同游戏:4 格放满才能开煮
   const canCook = computed(() => filledIds.value.length === SLOT_COUNT && phase.value !== 'cooking')
@@ -69,23 +60,12 @@ export const usePotStore = defineStore('pot', () => {
     reset()
   }
 
-  function clear() {
-    if (phase.value === 'cooking') return
-    slots.value.fill(null)
-    reset()
-  }
-
   function reset() {
     if (cookTimer) clearTimeout(cookTimer)
     cookTimer = null
     phase.value = 'idle'
     result.value = null
     cookedIds.value = []
-  }
-
-  function setCooker(id: CookerId) {
-    cooker.value = id
-    reset()
   }
 
   function cook() {
@@ -97,8 +77,7 @@ export const usePotStore = defineStore('pot', () => {
     cookedIds.value = ids
     slots.value.fill(null)
     // 无匹配菜谱时 wetgoop(恒真 test + 最低优先级)自然兜底
-    seed.value = (Math.random() * 0xffffffff) >>> 0
-    result.value = calculateRecipe(ids, cooker.value, mulberry32(seed.value))
+    result.value = calculateRecipe(ids, 'cookpot', mulberry32((Math.random() * 0xffffffff) >>> 0))
     phase.value = 'cooking'
     cookTimer = setTimeout(() => {
       phase.value = 'done'
@@ -113,20 +92,15 @@ export const usePotStore = defineStore('pot', () => {
 
   return {
     slots,
-    cooker,
     phase,
-    seed,
     result,
     filledIds,
     activeIds,
-    ingData,
     candidates,
     canCook,
     put,
     take,
-    clear,
     reset,
-    setCooker,
     cook,
     slotIngredient,
   }
