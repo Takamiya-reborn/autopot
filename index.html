@@ -1,14 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- 丸子图与 JS 包并行下载,静态遮罩即刻可见 -->
+    <link rel="preload" as="image" href="/meatballs.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>饥荒料理锅</title>
+    <style>
+      /* 首屏加载遮罩:不依赖 JS/CSS 包,页面打开即显示 */
+      .boot-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        background: radial-gradient(ellipse 120% 90% at 50% 30%, #1a130e 0%, #0d0a08 100%);
+      }
+
+      .boot-loader__fire {
+        position: relative;
+        width: 160px;
+        height: 160px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+
+      .boot-loader__glow {
+        position: absolute;
+        bottom: 6px;
+        width: 140px;
+        height: 70px;
+        border-radius: 50%;
+        background: radial-gradient(
+          ellipse at 50% 60%,
+          rgba(232, 134, 44, 0.45) 0%,
+          transparent 70%
+        );
+        animation: boot-pulse 1.1s ease-in-out infinite;
+      }
+
+      .boot-loader__pot {
+        position: relative;
+        width: 130px;
+        animation: boot-bob 1.1s ease-in-out infinite;
+      }
+
+      .boot-loader__title {
+        font-size: 22px;
+        letter-spacing: 6px;
+        color: #f3e9d2;
+        text-shadow:
+          0 0 18px rgba(232, 134, 44, 0.45),
+          0 2px 3px #000;
+      }
+
+      .boot-loader__tip {
+        font-size: 15px;
+        letter-spacing: 4px;
+        color: #b3a482;
+        animation: boot-blink 1.4s ease-in-out infinite;
+      }
+
+      .boot-loader--leave {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      @keyframes boot-bob {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+
+      @keyframes boot-pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.7;
+        }
+
+        50% {
+          transform: scale(1.15);
+          opacity: 1;
+        }
+      }
+
+      @keyframes boot-blink {
+        0%,
+        100% {
+          opacity: 0.45;
+        }
+
+        50% {
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
+    <div id="loader" class="boot-loader">
+      <div class="boot-loader__fire">
+        <div class="boot-loader__glow"></div>
+        <img class="boot-loader__pot" src="/meatballs.png" alt="" aria-hidden="true" />
+      </div>
+      <div class="boot-loader__title">DON'T STARVE TOGETHER</div>
+      <div class="boot-loader__tip">正在生火…</div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

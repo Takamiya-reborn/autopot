@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "update": "node scripts/update.mjs",
     "data": "node scripts/build-data.mjs",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
