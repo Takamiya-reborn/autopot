@@ -1,9 +1,10 @@
-// 图标压缩:缩到 MAX 内 + 调色板 PNG(页面最大展示 52px,128px 足够 2x 屏)
+// 图标压缩:缩到 MAX 内 + 调色板 PNG
 import fs from 'node:fs'
 import path from 'node:path'
 import sharp from 'sharp'
 
-const MAX = 128
+// 菜品展示 248px,取 256 覆盖 2x 屏
+const MAX = 256
 
 export async function compressIcons(dir) {
   let before = 0

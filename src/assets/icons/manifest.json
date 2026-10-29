@@ -25,9 +25,9 @@
     "atlas": "inventoryimages1"
   },
   "baconeggs": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "batnose_cooked": {
     "w": 126,
@@ -50,14 +50,14 @@
     "atlas": "inventoryimages1"
   },
   "californiaroll": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "barnaclinguine": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "cactus_meat": {
     "w": 126,
@@ -80,9 +80,9 @@
     "atlas": "inventoryimages1"
   },
   "asparagussoup": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "berries_juicy": {
     "w": 126,
@@ -90,14 +90,14 @@
     "atlas": "inventoryimages1"
   },
   "beefalofeed": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "bonestew": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "dragonfruit_cooked": {
     "w": 126,
@@ -110,14 +110,14 @@
     "atlas": "inventoryimages1"
   },
   "bananapop": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "butterflymuffin": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "corn_cooked": {
     "w": 126,
@@ -125,9 +125,9 @@
     "atlas": "inventoryimages1"
   },
   "ceviche": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "cactus_flower": {
     "w": 126,
@@ -170,24 +170,24 @@
     "atlas": "inventoryimages1"
   },
   "beefalotreat": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "bananajuice": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "bunnystew": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "bonesoup": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "barnacle_cooked": {
     "w": 126,
@@ -195,14 +195,14 @@
     "atlas": "inventoryimages1"
   },
   "dragonpie": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "barnaclestuffedfishhead": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "batwing": {
     "w": 126,
@@ -230,9 +230,9 @@
     "atlas": "inventoryimages1"
   },
   "barnaclepita": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "acorn_cooked": {
     "w": 126,
@@ -250,9 +250,9 @@
     "atlas": "inventoryimages1"
   },
   "barnaclesushi": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "blue_cap": {
     "w": 126,
@@ -270,14 +270,14 @@
     "atlas": "inventoryimages1"
   },
   "dragonchilisalad": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "batnosehat": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages1"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "cutlichen": {
     "w": 126,
@@ -285,9 +285,9 @@
     "atlas": "inventoryimages1"
   },
   "monstertartare": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "fish": {
     "w": 126,
@@ -315,9 +315,9 @@
     "atlas": "inventoryimages2"
   },
   "honeynuggets": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "fishmeat_dried": {
     "w": 126,
@@ -330,14 +330,14 @@
     "atlas": "inventoryimages2"
   },
   "meatballs": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "honeyham": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "mitegland": {
     "w": 126,
@@ -345,9 +345,9 @@
     "atlas": "inventoryimages2"
   },
   "fishsticks": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "pondfish": {
     "w": 126,
@@ -375,9 +375,9 @@
     "atlas": "inventoryimages2"
   },
   "icecream": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "froglegs": {
     "w": 126,
@@ -390,9 +390,9 @@
     "atlas": "inventoryimages2"
   },
   "meatysalad": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "plantmeat": {
     "w": 126,
@@ -425,9 +425,9 @@
     "atlas": "inventoryimages2"
   },
   "frogglebunwich": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "milkywhites": {
     "w": 126,
@@ -435,9 +435,9 @@
     "atlas": "inventoryimages2"
   },
   "fishtacos": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "goatmilk": {
     "w": 126,
@@ -445,24 +445,24 @@
     "atlas": "inventoryimages2"
   },
   "figkabab": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "dustmeringue": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "justeggs": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "flowersalad": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "eggplant_cooked": {
     "w": 126,
@@ -470,14 +470,14 @@
     "atlas": "inventoryimages2"
   },
   "glowberrymousse": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "leafloaf": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "oceanfish_medium_8_inv": {
     "w": 126,
@@ -490,9 +490,9 @@
     "atlas": "inventoryimages2"
   },
   "lobsterbisque": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "forgetmelots_dried": {
     "w": 126,
@@ -500,9 +500,9 @@
     "atlas": "inventoryimages2"
   },
   "frognewton": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "kelp_cooked": {
     "w": 126,
@@ -510,9 +510,9 @@
     "atlas": "inventoryimages2"
   },
   "hotchili": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "eel_cooked": {
     "w": 126,
@@ -525,9 +525,9 @@
     "atlas": "inventoryimages2"
   },
   "leafymeatsouffle": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "pepper_cooked": {
     "w": 126,
@@ -535,9 +535,9 @@
     "atlas": "inventoryimages2"
   },
   "potatosouffle": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "oceanfish_small_3_inv": {
     "w": 126,
@@ -555,14 +555,14 @@
     "atlas": "inventoryimages2"
   },
   "kabobs": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "jellybean": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "moon_tree_blossom_dried": {
     "w": 126,
@@ -580,14 +580,14 @@
     "atlas": "inventoryimages2"
   },
   "fruitmedley": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "figatoni": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "meat_dried": {
     "w": 126,
@@ -595,24 +595,24 @@
     "atlas": "inventoryimages2"
   },
   "leafymeatburger": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "koalefig_trunk": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "guacamole": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "monsterlasagna": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "mandrake": {
     "w": 126,
@@ -620,9 +620,9 @@
     "atlas": "inventoryimages2"
   },
   "mashedpotatoes": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "honey": {
     "w": 126,
@@ -640,9 +640,9 @@
     "atlas": "inventoryimages2"
   },
   "frozenbananadaiquiri": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "monstermeat": {
     "w": 126,
@@ -695,9 +695,9 @@
     "atlas": "inventoryimages2"
   },
   "moqueca": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "mitegland_cooked": {
     "w": 126,
@@ -705,9 +705,9 @@
     "atlas": "inventoryimages2"
   },
   "frogfishbowl": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "oceanfish_medium_5_inv": {
     "w": 126,
@@ -735,9 +735,9 @@
     "atlas": "inventoryimages2"
   },
   "pepperpopper": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "oceanfish_small_2_inv": {
     "w": 126,
@@ -745,9 +745,9 @@
     "atlas": "inventoryimages2"
   },
   "jammypreserves": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "drumstick_cooked": {
     "w": 126,
@@ -790,14 +790,14 @@
     "atlas": "inventoryimages2"
   },
   "perogies": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "lobsterdinner": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "fishmeat": {
     "w": 126,
@@ -810,9 +810,9 @@
     "atlas": "inventoryimages2"
   },
   "freshfruitcrepes": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "froglegs_cooked": {
     "w": 126,
@@ -825,9 +825,9 @@
     "atlas": "inventoryimages2"
   },
   "potatotornado": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "fish_cooked": {
     "w": 126,
@@ -845,14 +845,14 @@
     "atlas": "inventoryimages2"
   },
   "nightmarepie": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "gazpacho": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "oceanfish_small_1_inv": {
     "w": 126,
@@ -865,9 +865,9 @@
     "atlas": "inventoryimages2"
   },
   "mandrakesoup": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages2"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "pomegranate_cooked": {
     "w": 126,
@@ -895,14 +895,14 @@
     "atlas": "inventoryimages3"
   },
   "talleggs": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "vegstinger": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "smallmeat_dried": {
     "w": 126,
@@ -930,29 +930,29 @@
     "atlas": "inventoryimages3"
   },
   "veggieomlet": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "surfnturf": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "salsa": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "stuffedeggplant": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "pumpkincookie": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "watermelon": {
     "w": 126,
@@ -975,24 +975,24 @@
     "atlas": "inventoryimages3"
   },
   "ratatouille": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "shroombait": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "powcake": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "voltgoatjelly": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "smallmeat": {
     "w": 126,
@@ -1000,9 +1000,9 @@
     "atlas": "inventoryimages3"
   },
   "turkeydinner": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "trunk_winter": {
     "w": 126,
@@ -1010,14 +1010,14 @@
     "atlas": "inventoryimages3"
   },
   "wetgoop": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "taffy": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "pumpkin": {
     "w": 126,
@@ -1040,9 +1040,9 @@
     "atlas": "inventoryimages3"
   },
   "shroomcake": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "seeds": {
     "w": 126,
@@ -1055,9 +1055,9 @@
     "atlas": "inventoryimages3"
   },
   "sweettea": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "pumpkin_cooked": {
     "w": 126,
@@ -1065,24 +1065,24 @@
     "atlas": "inventoryimages3"
   },
   "watermelonicle": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "trailmix": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "unagi": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "waffles": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "trunk_summer": {
     "w": 126,
@@ -1090,9 +1090,9 @@
     "atlas": "inventoryimages3"
   },
   "seafoodgumbo": {
-    "w": 126,
-    "h": 126,
-    "atlas": "inventoryimages3"
+    "w": 255,
+    "h": 255,
+    "atlas": "cookbook"
   },
   "rock_avocado_fruit_ripe": {
     "w": 126,

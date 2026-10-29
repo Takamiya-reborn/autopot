@@ -1,6 +1,7 @@
 // 从本机 DST 提取物品栏图鉴贴图,生成 src/assets/icons/<prefab>.png
 // 用法: node scripts/extract-icons.mjs [--dst <DST 安装目录>]
 // 流程: images.zip -> inventoryimages*.tex -> 内置解码(KTEX/DXT) -> 按 XML UV 裁剪
+//       菜品优先取 data/images/cookbook_*.tex(256px 高清,图鉴仅 64px)
 import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -26,7 +27,7 @@ function parseArgs() {
 
 const TAR = path.join(process.env.SystemRoot ?? 'C:\\Windows', 'System32', 'tar.exe')
 
-// 图鉴原生约 64px,导出预放大 + 轻锐化改善观感;落盘前统一压缩到 128px 内
+// 图鉴原生约 64px,导出预放大 + 轻锐化改善观感;cookbook 菜品图为原生 255px,不放大
 const UPSCALE = 2
 
 // 裁剪 -> lanczos 放大 -> 锐化 -> 落盘(clone 防止复用同一管道时相互污染)
@@ -53,6 +54,28 @@ function extractMembers(zipPath, members, dest) {
 }
 
 // ---------- 图集帧解析与裁剪 ----------
+
+// cookbook 菜品图:XML 在 images.zip,tex 明文散落在 <游戏目录>/data/images/,原生 255px
+async function extractFromCookbook(id, imgDir, manifest) {
+  const xmlPath = path.join(CACHE, 'images', `cookbook_${id}.xml`)
+  const texPath = path.join(imgDir, `cookbook_${id}.tex`)
+  if (!fs.existsSync(xmlPath) || !fs.existsSync(texPath)) return false
+  const frames = parseAtlasXml(xmlPath)
+  const { w, h, rgba } = decodeKtex(fs.readFileSync(texPath))
+  const f = frames.values().next().value
+  if (!f) return false
+  const x = Math.round(f.u1 * w)
+  const y = Math.round((1 - f.v2) * h)
+  const fw = Math.round((f.u2 - f.u1) * w)
+  const fh = Math.round((f.v2 - f.v1) * h)
+  if (fw <= 0 || fh <= 0 || x < 0 || y < 0 || x + fw > w || y + fh > h) return false
+  await sharp(rgba, { raw: { width: w, height: h, channels: 4 } })
+    .extract({ left: x, top: y, width: fw, height: fh })
+    .png()
+    .toFile(path.join(OUT_DIR, `${id}.png`))
+  manifest[id] = { w: fw, h: fh, atlas: 'cookbook' }
+  return true
+}
 
 // HUD 三维徽章:金环(status_meter 帧 1)+ 内芯(各 status_*.zip 固定帧)合成
 // 帧序号随游戏版本可能变动,更新后需人工核对
@@ -82,6 +105,14 @@ function collectDataIds() {
     const text = fs.readFileSync(path.join(projectRoot, 'src', 'data', file), 'utf8')
     for (const m of text.matchAll(/\b["']?id["']?\s*:\s*["']([^"']+)["']/g)) ids.add(m[1])
   }
+  return ids
+}
+
+// 菜品 id(仅 recipes.ts),用于 cookbook 高清图对照
+function collectDishIds() {
+  const ids = new Set()
+  const text = fs.readFileSync(path.join(projectRoot, 'src', 'data', 'recipes.ts'), 'utf8')
+  for (const m of text.matchAll(/\b["']?id["']?\s*:\s*["']([^"']+)["']/g)) ids.add(m[1])
   return ids
 }
 
@@ -189,7 +220,11 @@ async function main() {
   gameDirArg = gameDir
   console.log(`游戏目录: ${gameDir}`)
 
-  const members = ATLASES.flatMap((a) => [`images/${a}.tex`, `images/${a}.xml`])
+  const dishIds = [...collectDishIds()]
+  const members = [
+    ...ATLASES.flatMap((a) => [`images/${a}.tex`, `images/${a}.xml`]),
+    ...dishIds.map((id) => `images/cookbook_${id}.xml`),
+  ]
   extractMembers(path.join(gameDir, BUNDLE), members, CACHE)
   console.log(`已解包图集: ${members.length} 个文件`)
 
@@ -221,6 +256,14 @@ async function main() {
     }
     console.log(`${atlas}: ${frames.size} 帧`)
   }
+
+  // 菜品用 cookbook 高清图覆盖(原生 255px,图鉴仅 64px)
+  const imgDir = path.join(gameDir, 'data', 'images')
+  let hi = 0
+  for (const id of dishIds) {
+    if (await extractFromCookbook(id, imgDir, manifest)) hi++
+  }
+  console.log(`cookbook 高清菜品: ${hi}/${dishIds.length} 张`)
 
   // 图集里没有的新物品(如 onion/tomato)从 anim 包兜底提取
   const dataIds = [...collectDataIds()]
