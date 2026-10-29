@@ -1,6 +1,7 @@
 <script setup lang="ts">
-// 物品图标:构建期把 src/assets/icons 全量导入为 URL,按 prefab id 索引;缺图用 ? 占位
+// 物品图标:URL 索引来自 lib/icons,视口外浏览器原生惰性加载;缺图用 ? 占位
 import { computed } from 'vue'
+import { iconMap } from '@/lib/icons'
 
 const props = withDefaults(
   defineProps<{
@@ -10,15 +11,6 @@ const props = withDefaults(
   { size: 48 },
 )
 
-const modules = import.meta.glob<string>('../../assets/icons/*.png', {
-  eager: true,
-  import: 'default',
-})
-const iconMap: Record<string, string> = {}
-for (const [path, url] of Object.entries(modules)) {
-  iconMap[path.replace(/^.*\/(.+)\.png$/, '$1')] = url
-}
-
 const src = computed(() => iconMap[props.id] ?? null)
 </script>
 
@@ -27,6 +19,8 @@ const src = computed(() => iconMap[props.id] ?? null)
     v-if="src"
     class="ing-icon"
     :src="src"
+    loading="lazy"
+    decoding="async"
     :alt="id"
     :style="{ width: `${size}px`, height: `${size}px` }"
     draggable="false"
